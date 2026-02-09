@@ -1,0 +1,45 @@
+<svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="400" fill="#ffffff"/>
+  
+  <!-- Header -->
+  <line x1="0" y1="55" x2="300" y2="55" stroke="#555555" stroke-width="1.5"/>
+  <text x="20" y="32" font-size="16" font-weight="bold" fill="#1a1a1a" font-family="Arial">alex johnson</text>
+  <text x="20" y="50" font-size="9" fill="#888888" font-family="Arial">product designer & strategist</text>
+  
+  <!-- Divider -->
+  <line x1="20" y1="65" x2="280" y2="65" stroke="#e5e5e5" stroke-width="1"/>
+  
+  <!-- Contact Info -->
+  <text x="20" y="82" font-size="8" fill="#555555" font-family="Arial">alex.johnson@design.com | +91-98765-43210 | behance.net/alex</text>
+  
+  <!-- About Section -->
+  <text x="20" y="110" font-size="9" font-weight="bold" fill="#1a1a1a" font-family="Arial">SUMMARY</text>
+  <text x="20" y="128" font-size="8" fill="#555555" font-family="Arial">Minimalist product designer focused on creating clean, functional,</text>
+  <text x="20" y="141" font-size="8" fill="#555555" font-family="Arial">and user-centered interface designs for digital products.</text>
+  
+  <!-- Experience Section -->
+  <text x="20" y="170" font-size="9" font-weight="bold" fill="#1a1a1a" font-family="Arial">PROFESSIONAL EXPERIENCE</text>
+  
+  <text x="20" y="190" font-size="9" font-weight="bold" fill="#1a1a1a" font-family="Arial">Senior Product Designer</text>
+  <text x="20" y="203" font-size="8" fill="#555555" font-family="Arial">DesignStudio Inc. 2022 - Present</text>
+  <rect x="20" y="210" width="240" height="1" fill="#eeeeee"/>
+  
+  <text x="20" y="228" font-size="9" font-weight="bold" fill="#1a1a1a" font-family="Arial">Product Designer</text>
+  <text x="20" y="241" font-size="8" fill="#555555" font-family="Arial">Creative Agency 2019 - 2022</text>
+  <rect x="20" y="248" width="240" height="1" fill="#eeeeee"/>
+  
+  <!-- Skills Section -->
+  <text x="20" y="270" font-size="9" font-weight="bold" fill="#1a1a1a" font-family="Arial">EXPERTISE</text>
+  
+  <text x="20" y="288" font-size="8" fill="#555555" font-family="Arial">Design Systems • User Research • Figma & Sketch</text>
+  <text x="20" y="303" font-size="8" fill="#555555" font-family="Arial">Wireframing • Prototyping • A/B Testing</text>
+  <text x="20" y="318" font-size="8" fill="#555555" font-family="Arial">Information Architecture • Usability Testing</text>
+  
+  <!-- Education -->
+  <text x="20" y="345" font-size="9" font-weight="bold" fill="#1a1a1a" font-family="Arial">EDUCATION</text>
+  <text x="20" y="363" font-size="8" fill="#555555" font-family="Arial">BFA Graphic Design, Design University 2019</text>
+  
+  <!-- Bottom Line -->
+  <line x1="0" y1="398" x2="300" y2="398" stroke="#555555" stroke-width="1"/>
+</svg>

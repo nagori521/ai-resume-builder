@@ -1,0 +1,65 @@
+<svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="startupBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff8f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffe8e0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="300" height="400" fill="url(#startupBg)"/>
+  
+  <!-- Gradient Header -->
+  <defs>
+    <linearGradient id="startupGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffa500;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="300" height="100" fill="url(#startupGrad)"/>
+  
+  <!-- Decorative Elements -->
+  <circle cx="260" cy="25" r="16" fill="#ffffff" opacity="0.2"/>
+  <circle cx="280" cy="60" r="10" fill="#ffffff" opacity="0.15"/>
+  
+  <!-- Header Content -->
+  <text x="20" y="45" font-size="20" font-weight="bold" fill="#ffffff" font-family="Arial">Sarah Chen</text>
+  <text x="20" y="67" font-size="12" fill="#ffffff" font-family="Arial">Growth Hacker & Founder</text>
+  <text x="20" y="85" font-size="9" fill="#ffffff" font-family="Arial">sarah@startupventure.com | +91-99876-54321</text>
+  
+  <!-- About Section -->
+  <rect x="15" y="115" width="270" height="45" fill="#ffffff" rx="6" opacity="0.95"/>
+  <text x="25" y="133" font-size="10" font-weight="bold" fill="#ff6b6b" font-family="Arial">🚀 FOUNDER & GROWTH LEADER</text>
+  <text x="25" y="151" font-size="8" fill="#333333" font-family="Arial">Built and scaled 2 successful startups from idea to Series A funding.</text>
+  
+  <!-- Experience with Timeline -->
+  <text x="20" y="185" font-size="11" font-weight="bold" fill="#ff6b6b" font-family="Arial">▸ VENTURE JOURNEY</text>
+  <line x1="20" y1="191" x2="280" y2="191" stroke="#ff6b6b" stroke-width="2"/>
+  
+  <!-- Timeline Circle 1 -->
+  <circle cx="28" cy="215" r="6" fill="#ff6b6b"/>
+  <line x1="28" y1="221" x2="28" y2="255" stroke="#ffa500" stroke-width="2"/>
+  <text x="42" y="220" font-size="9" font-weight="bold" fill="#1a1a2e" font-family="Arial">Co-founder, TechStart AI</text>
+  <text x="42" y="234" font-size="7" fill="#666666" font-family="Arial">2022-Present • $5M+ Seed Funding • 50+ Team</text>
+  
+  <!-- Timeline Circle 2 -->
+  <circle cx="28" cy="260" r="6" fill="#ffa500"/>
+  <line x1="28" y1="266" x2="28" y2="300" stroke="#ff6b6b" stroke-width="2"/>
+  <text x="42" y="265" font-size="9" font-weight="bold" fill="#1a1a2e" font-family="Arial">Growth Manager, WebStartup</text>
+  <text x="42" y="279" font-size="7" fill="#666666" font-family="Arial">2020-2022 • Scaled 500% YoY • Series B Exit</text>
+  
+  <!-- Skills/Achievements -->
+  <text x="20" y="320" font-size="11" font-weight="bold" fill="#ff6b6b" font-family="Arial">▸ KEY METRICS</text>
+  <line x1="20" y1="326" x2="280" y2="326" stroke="#ff6b6b" stroke-width="2"/>
+  
+  <rect x="20" y="340" width="60" height="35" fill="#ff6b6b" rx="4"/>
+  <text x="50" y="357" font-size="12" font-weight="bold" fill="#ffffff" font-family="Arial" text-anchor="middle">500%</text>
+  <text x="50" y="370" font-size="7" fill="#ffffff" font-family="Arial" text-anchor="middle">Growth</text>
+  
+  <rect x="90" y="340" width="60" height="35" fill="#ffa500" rx="4"/>
+  <text x="120" y="357" font-size="12" font-weight="bold" fill="#ffffff" font-family="Arial" text-anchor="middle">$10M</text>
+  <text x="120" y="370" font-size="7" fill="#ffffff" font-family="Arial" text-anchor="middle">Raised</text>
+  
+  <rect x="160" y="340" width="60" height="35" fill="#ff99bb" rx="4"/>
+  <text x="190" y="357" font-size="12" font-weight="bold" fill="#ffffff" font-family="Arial" text-anchor="middle">100+</text>
+  <text x="190" y="370" font-size="7" fill="#ffffff" font-family="Arial" text-anchor="middle">Employees</text>
+</svg>

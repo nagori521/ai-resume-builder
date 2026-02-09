@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Choose how to build your resume. Create from scratch or reshape your existing resume with our easy-to-use builder.">
+    <meta name="keywords" content="build resume, reshape resume, resume builder, create CV">
+    <meta name="author" content="Smart Resume Builder">
+    <title>Select Resume Option - AI Resume Builder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="template-selection.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <a href="index.html"><img src="images/logo.svg" alt="Smart Resume Builder Logo" class="logo-img"></a>
+                </div>
+                <nav class="main-nav">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="template.html" class="nav-link">Templates</a>
+                    <a href="contactus.html" class="nav-link">Contact</a>
+                </nav>
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="selection-main">
+        <!-- Hero Section -->
+        <section class="selection-hero">
+            <div class="container">
+                <h2>Choose Your Resume Building Method</h2>
+                <p class="selection-subtitle">Select how you'd like to create your resume</p>
+            </div>
+        </section>
+
+        <!-- Options Grid -->
+        <section class="selection-options">
+            <div class="container">
+                <div class="options-grid">
+                    <!-- Build From Scratch Option -->
+                    <div class="option-card">
+                        <div class="option-icon build-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                            </svg>
+                        </div>
+                        <h3>Build from Scratch</h3>
+                        <p class="option-description">Start fresh and create a new resume using our selected template. Perfect for crafting a tailored resume for any position.</p>
+                        <ul class="option-benefits">
+                            <li>✓ Customizable sections</li>
+                            <li>✓ Real-time preview</li>
+                            <li>✓ Professional formatting</li>
+                            <li>✓ Download as PDF</li>
+                        </ul>
+                        <button class="option-btn build-btn" id="buildBtn" data-template="" data-mode="build">
+                            Start Building
+                        </button>
+                    </div>
+
+                    <!-- Reshape Old Resume Option -->
+                    <div class="option-card">
+                        <div class="option-icon reshape-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5m-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11m3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z"></path>
+                            </svg>
+                        </div>
+                        <h3>Reshape Old Resume</h3>
+                        <p class="option-description">Upload your existing resume or paste content. We'll help you reformat and enhance it with the selected template.</p>
+                        <ul class="option-benefits">
+                            <li>✓ Import existing content</li>
+                            <li>✓ AI formatting (coming soon)</li>
+                            <li>✓ Template upgrade</li>
+                            <li>✓ One-click export</li>
+                        </ul>
+                        <button class="option-btn reshape-btn" id="reshapeBtn" data-template="" data-mode="reshape">
+                            Import & Reshape
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Back Button -->
+                <div class="selection-footer">
+                    <a href="template.html" class="back-btn">← Back to Templates</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>AI Resume Builder</h4>
+                    <p>Create professional resumes in minutes with our AI-powered builder.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="index.html">Home</a>
+                    <a href="template.html">Templates</a>
+                    <a href="contactus.html">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <a href="https://twitter.com" target="_blank">Twitter</a>
+                    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                    <a href="https://facebook.com" target="_blank">Facebook</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 AI Resume Builder. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="template-selection.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <linearGradient id="g1" x1="0" x2="1">
+      <stop offset="0" stop-color="#e6f0ff"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+    <filter id="cardShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="20" stdDeviation="30" flood-color="#cfd9f5" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <!-- Background subtle -->
+  <rect width="900" height="600" fill="#f7fbff"/>
+
+  <!-- Card container -->
+  <rect x="50" y="40" width="260" height="420" rx="18" fill="url(#g1)" filter="url(#cardShadow)"/>
+
+  <!-- Small resume mock inside card -->
+  <rect x="78" y="70" width="204" height="320" rx="10" fill="#ffffff" stroke="#eef3ff"/>
+  <rect x="100" y="90" width="56" height="56" rx="28" fill="#cfe3ff"/>
+  <rect x="168" y="96" width="120" height="18" rx="6" fill="#2f80ed"/>
+  <rect x="168" y="118" width="120" height="12" rx="6" fill="#9fbff6"/>
+
+  <rect x="100" y="160" width="188" height="12" rx="6" fill="#f1f5ff"/>
+  <rect x="100" y="182" width="188" height="12" rx="6" fill="#f1f5ff"/>
+  <rect x="100" y="204" width="140" height="12" rx="6" fill="#eef3ff"/>
+
+  <rect x="100" y="240" width="84" height="12" rx="6" fill="#f1f5ff"/>
+  <rect x="100" y="262" width="170" height="12" rx="6" fill="#eef3ff"/>
+
+  <!-- Card footer label -->
+  <rect x="50" y="380" width="260" height="120" rx="18" fill="#ffffff"/>
+  <text x="90" y="420" font-family="Inter, Arial" font-size="20" font-weight="700" fill="#0f172a">Modern Professional</text>
+  <text x="90" y="443" font-family="Inter, Arial" font-size="13" fill="#6b7280">Clean and contemporary design</text>
+  <rect x="90" y="465" width="120" height="36" rx="8" fill="#2f80ed"/>
+  <text x="140" y="489" font-family="Inter, Arial" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Use Template</text>
+</svg>

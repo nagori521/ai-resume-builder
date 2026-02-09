@@ -1,0 +1,30 @@
+<svg viewBox="0 0 768 768" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="768" height="768" fill="#efefef"/>
+  
+  <!-- File Icon -->
+  <g transform="translate(140, 265)">
+    <!-- Document Shape -->
+    <path d="M 0 0 L 120 0 L 150 30 L 150 380 L 0 380 Z" fill="none" stroke="#2d8fa3" stroke-width="8" stroke-linejoin="round"/>
+    
+    <!-- Top Right Corner -->
+    <path d="M 120 0 L 150 30 L 120 30 Z" fill="none" stroke="#2d8fa3" stroke-width="8" stroke-linejoin="round"/>
+    
+    <!-- Orange Accent Square -->
+    <rect x="40" y="250" width="70" height="70" fill="#ff7a3d" rx="5"/>
+    
+    <!-- Document Lines -->
+    <line x1="30" y1="80" x2="120" y2="80" stroke="#2d8fa3" stroke-width="6"/>
+    <line x1="30" y1="130" x2="120" y2="130" stroke="#2d8fa3" stroke-width="6"/>
+    <line x1="30" y1="180" x2="90" y2="180" stroke="#2d8fa3" stroke-width="6"/>
+  </g>
+  
+  <!-- Text: "Smart" in Teal -->
+  <text x="310" y="320" font-family="Arial, sans-serif" font-size="90" font-weight="bold" fill="#2d8fa3" letter-spacing="-2">Smart</text>
+  
+  <!-- Text: "resume" in Dark Gray -->
+  <text x="310" y="420" font-family="Arial, sans-serif" font-size="90" font-weight="700" fill="#2d3e50" letter-spacing="-2">resume</text>
+  
+  <!-- Text: "builder" in Orange -->
+  <text x="310" y="520" font-family="Arial, sans-serif" font-size="90" font-weight="bold" fill="#ff7a3d" letter-spacing="-2">builder</text>
+</svg>

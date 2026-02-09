@@ -1,0 +1,49 @@
+<svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="400" fill="#faf7f2"/>
+  
+  <!-- Elegant Header -->
+  <rect width="300" height="95" fill="#2b3e50"/>
+  <text x="20" y="42" font-size="20" font-weight="bold" fill="#ffffff" font-family="Georgia">Dr. Richard Thompson</text>
+  <text x="20" y="65" font-size="11" fill="#d4af37" font-family="Georgia">Executive Business Leader</text>
+  <text x="20" y="82" font-size="9" fill="#b0d4ff" font-family="Georgia">richard@enterprise.com | +91-99876-54321</text>
+  
+  <!-- Gold Accent Line -->
+  <line x1="20" y1="88" x2="150" y2="88" stroke="#d4af37" stroke-width="2.5"/>
+  
+  <!-- Two Column Layout -->
+  <!-- Left Column -->
+  <text x="20" y="120" font-size="11" font-weight="bold" fill="#2b3e50" font-family="Georgia">EXPERTISE</text>
+  <line x1="20" y1="126" x2="140" y2="126" stroke="#d4af37" stroke-width="1"/>
+  
+  <text x="20" y="147" font-size="9" fill="#333333" font-family="Georgia">Strategic Planning</text>
+  <text x="20" y="165" font-size="9" fill="#333333" font-family="Georgia">Team Leadership</text>
+  <text x="20" y="183" font-size="9" fill="#333333" font-family="Georgia">Financial Analysis</text>
+  <text x="20" y="201" font-size="9" fill="#333333" font-family="Georgia">Business Development</text>
+  <text x="20" y="219" font-size="9" fill="#333333" font-family="Georgia">Change Management</text>
+  
+  <!-- Right Column -->
+  <text x="160" y="120" font-size="11" font-weight="bold" fill="#2b3e50" font-family="Georgia">PROFESSIONAL HISTORY</text>
+  <line x1="160" y1="126" x2="280" y2="126" stroke="#d4af37" stroke-width="1"/>
+  
+  <text x="160" y="145" font-size="9" font-weight="bold" fill="#2b3e50" font-family="Georgia">Chief Executive Officer</text>
+  <text x="160" y="160" font-size="8" fill="#666666" font-family="Georgia">Global Enterprise Inc. 2020-Now</text>
+  <text x="160" y="173" font-size="8" fill="#999999" font-family="Georgia">Revenue Growth: 150% | 500+ Staff</text>
+  
+  <text x="160" y="195" font-size="9" font-weight="bold" fill="#2b3e50" font-family="Georgia">Vice President Operations</text>
+  <text x="160" y="210" font-size="8" fill="#666666" font-family="Georgia">Fortune 500 Corporation 2015-2020</text>
+  <text x="160" y="223" font-size="8" fill="#999999" font-family="Georgia">Managed $200M+ Budget</text>
+  
+  <!-- Education -->
+  <text x="160" y="250" font-size="11" font-weight="bold" fill="#2b3e50" font-family="Georgia">EDUCATION</text>
+  <line x1="160" y1="256" x2="280" y2="256" stroke="#d4af37" stroke-width="1"/>
+  
+  <text x="160" y="275" font-size="9" font-weight="bold" fill="#2b3e50" font-family="Georgia">MBA, Harvard Business School</text>
+  <text x="160" y="290" font-size="9" font-weight="bold" fill="#2b3e50" font-family="Georgia">B.S. Economics, Yale University</text>
+  
+  <!-- Achievements -->
+  <rect x="15" y="320" width="270" height="65" fill="#ffffff" stroke="#d4af37" stroke-width="1.5" rx="4"/>
+  <text x="25" y="340" font-size="9" font-weight="bold" fill="#2b3e50" font-family="Georgia">KEY ACHIEVEMENTS</text>
+  <text x="25" y="358" font-size="8" fill="#333333" font-family="Georgia">• Led company IPO raising $500M | • Expanded to 25+ countries</text>
+  <text x="25" y="373" font-size="8" fill="#333333" font-family="Georgia">• Won Best CEO Award 2023 | • Published 3 Business Books</text>
+</svg>

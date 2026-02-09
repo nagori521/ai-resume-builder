@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <linearGradient id="g2" x1="0" x2="1">
+      <stop offset="0" stop-color="#fff7f2"/>
+      <stop offset="1" stop-color="#ffffff"/>
+    </linearGradient>
+    <filter id="cardShadow2" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="18" stdDeviation="26" flood-color="#f5e7db" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+
+  <rect width="900" height="600" fill="#fffbfa"/>
+
+  <rect x="320" y="40" width="260" height="420" rx="18" fill="url(#g2)" filter="url(#cardShadow2)"/>
+  <rect x="348" y="70" width="204" height="320" rx="10" fill="#ffffff" stroke="#fff0e8"/>
+
+  <rect x="368" y="92" width="56" height="56" rx="28" fill="#fde6d2"/>
+  <rect x="436" y="98" width="120" height="18" rx="6" fill="#d97706"/>
+  <rect x="436" y="120" width="120" height="12" rx="6" fill="#fca34b"/>
+
+  <rect x="368" y="170" width="188" height="12" rx="6" fill="#fff6f0"/>
+  <rect x="368" y="192" width="188" height="12" rx="6" fill="#fff6f0"/>
+  <rect x="368" y="214" width="140" height="12" rx="6" fill="#fffaf6"/>
+
+  <rect x="368" y="250" width="84" height="12" rx="6" fill="#fff6f0"/>
+  <rect x="368" y="272" width="170" height="12" rx="6" fill="#fffaf6"/>
+
+  <rect x="320" y="380" width="260" height="120" rx="18" fill="#ffffff"/>
+  <text x="360" y="420" font-family="Inter, Arial" font-size="20" font-weight="700" fill="#0f172a">Classic Elegant</text>
+  <text x="360" y="443" font-family="Inter, Arial" font-size="13" fill="#6b7280">Timeless and sophisticated style</text>
+  <rect x="360" y="465" width="120" height="36" rx="8" fill="#0ea5a3"/>
+  <text x="420" y="489" font-family="Inter, Arial" font-size="14" font-weight="700" fill="#fff" text-anchor="middle">Use Template</text>
+</svg>

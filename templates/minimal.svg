@@ -1,0 +1,46 @@
+<svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="400" fill="#ffffff"/>
+  
+  <!-- Minimal Header -->
+  <line x1="0" y1="70" x2="300" y2="70" stroke="#2a9d8f" stroke-width="2"/>
+  <text x="20" y="32" font-size="18" font-weight="bold" fill="#1a1a1a" font-family="Arial">dev.sarah.kumar</text>
+  <text x="20" y="50" font-size="9" fill="#666666" font-family="Arial">Senior Backend Engineer | Cloud Architect</text>
+  
+  <!-- Contact Strip -->
+  <line x1="20" y1="82" x2="280" y2="82" stroke="#e0e0e0" stroke-width="1"/>
+  
+  <!-- About -->
+  <text x="20" y="105" font-size="9" font-weight="bold" fill="#1a1a1a" font-family="Arial">ABOUT()</text>
+  <text x="20" y="122" font-size="8" fill="#444444" font-family="monospace">Backend engineer building scalable cloud systems,</text>
+  <text x="20" y="135" font-size="8" fill="#444444" font-family="monospace">microservices, and containerized applications.</text>
+  
+  <!-- Languages Section -->
+  <text x="20" y="160" font-size="9" font-weight="bold" fill="#1a1a1a" font-family="Arial">LANGUAGES()</text>
+  
+  <rect x="20" y="172" width="8" height="8" fill="#2a9d8f"/>
+  <text x="32" y="180" font-size="8" fill="#444444" font-family="monospace">Python, Go, JavaScript, Java</text>
+  
+  <rect x="20" y="192" width="8" height="8" fill="#2a9d8f"/>
+  <text x="32" y="200" font-size="8" fill="#444444" font-family="monospace">SQL, NoSQL, Docker, Kubernetes</text>
+  
+  <!-- Experience Section -->
+  <text x="20" y="225" font-size="9" font-weight="bold" fill="#1a1a1a" font-family="Arial">EXPERIENCE()</text>
+  
+  <text x="25" y="245" font-size="8" font-weight="bold" fill="#1a1a1a" font-family="monospace">> Senior Architect</text>
+  <text x="25" y="258" font-size="7" fill="#666666" font-family="monospace">CloudTech Solutions | 2021-Present</text>
+  
+  <text x="25" y="278" font-size="8" font-weight="bold" fill="#1a1a1a" font-family="monospace">> Backend Developer</text>
+  <text x="25" y="291" font-size="7" fill="#666666" font-family="monospace">StartupCorp | 2019-2021</text>
+  
+  <!-- Achievements dots -->
+  <circle cx="25" cy="312" r="2" fill="#2a9d8f"/>
+  <text x="32" y="315" font-size="8" fill="#444444" font-family="monospace">Lead 8-member team | 99.9% uptime</text>
+  
+  <circle cx="25" cy="332" r="2" fill="#2a9d8f"/>
+  <text x="32" y="335" font-size="8" fill="#444444" font-family="monospace">10M+ daily requests | AWS Expert</text>
+  
+  <!-- Footer -->
+  <line x1="0" y1="360" x2="300" y2="360" stroke="#2a9d8f" stroke-width="2"/>
+  <text x="20" y="380" font-size="7" fill="#2a9d8f" font-family="monospace">github.com/devsarah</text>
+</svg>

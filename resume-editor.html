@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Editor - AI Resume Builder</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resume-editor.css">
+    <!-- jsPDF for PDF export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <header class="editor-header">
+        <div class="container-editor">
+            <div class="header-top">
+                <div class="logo-section">
+                    <a href="index.html"><img src="images/logo.svg" alt="Smart Resume Builder Logo" class="logo-img"></a>
+                </div>
+                <div class="header-actions">
+                    <button id="saveBtn" class="action-btn save-btn" title="Save locally">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"></path>
+                            <polyline points="17 21 17 13 7 13 7 21"></polyline>
+                            <polyline points="7 3 7 8 15 8"></polyline>
+                        </svg>
+                        Save
+                    </button>
+                    <button id="downloadBtn" class="action-btn download-btn" title="Download as PDF">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                            <polyline points="7 10 12 15 17 10"></polyline>
+                            <line x1="12" y1="15" x2="12" y2="3"></line>
+                        </svg>
+                        Download PDF
+                    </button>
+                    <a href="template.html" class="action-btn exit-btn" title="Back to templates">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                        Exit
+                    </a>
+                </div>
+            </div>
+            <div class="template-info">
+                <span id="modeInfo">Build Mode</span>
+                <span id="templateInfo">Modern Template</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Editor Layout -->
+    <main class="editor-main">
+        <div class="editor-container">
+            <!-- Left Panel: Form -->
+            <div class="editor-form-panel">
+                <div class="form-container">
+                    <!-- Import Section (for Reshape mode) -->
+                    <div id="importSection" class="form-section" style="display: none;">
+                        <h3>Import Your Resume</h3>
+                        <div class="import-options">
+                            <div class="import-method">
+                                <h4>Option 1: Upload File</h4>
+                                <input type="file" id="fileInput" accept=".txt,.pdf" class="file-input">
+                                <p class="help-text">Supports PDF and text files</p>
+                            </div>
+                            <div class="divider">OR</div>
+                            <div class="import-method">
+                                <h4>Option 2: Paste Content</h4>
+                                <textarea id="pasteContent" placeholder="Paste your existing resume here..."></textarea>
+                                <button id="importBtn" class="btn-primary">Import Content</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Personal Information Section -->
+                    <section class="form-section">
+                        <h3>Personal Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" placeholder="e.g., John Doe" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" placeholder="e.g., john@example.com" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" id="phone" placeholder="e.g., +91-XXXXX-XXXXX">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="location">Location</label>
+                                <input type="text" id="location" placeholder="e.g., Bangalore, India">
+                            </div>
+                            <div class="form-group">
+                                <label for="website">Website/Portfolio</label>
+                                <input type="url" id="website" placeholder="e.g., https://yourportfolio.com">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="professionalTitle">Professional Title</label>
+                            <input type="text" id="professionalTitle" placeholder="e.g., Senior Software Engineer">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="summary">Professional Summary</label>
+                            <textarea id="summary" placeholder="Write a brief summary about yourself..."></textarea>
+                        </div>
+                    </section>
+
+                    <!-- Experience Section -->
+                    <section class="form-section">
+                        <div class="section-header">
+                            <h3>Experience</h3>
+                            <button type="button" id="addExperienceBtn" class="btn-add">+ Add Experience</button>
+                        </div>
+                        <div id="experienceList" class="dynamic-list"></div>
+                    </section>
+
+                    <!-- Education Section -->
+                    <section class="form-section">
+                        <div class="section-header">
+                            <h3>Education</h3>
+                            <button type="button" id="addEducationBtn" class="btn-add">+ Add Education</button>
+                        </div>
+                        <div id="educationList" class="dynamic-list"></div>
+                    </section>
+
+                    <!-- Skills Section -->
+                    <section class="form-section">
+                        <div class="section-header">
+                            <h3>Skills</h3>
+                            <button type="button" id="addSkillBtn" class="btn-add">+ Add Skill</button>
+                        </div>
+                        <div id="skillsList" class="dynamic-list"></div>
+                    </section>
+
+                    <!-- Certifications Section -->
+                    <section class="form-section">
+                        <div class="section-header">
+                            <h3>Certifications</h3>
+                            <button type="button" id="addCertificationBtn" class="btn-add">+ Add Certification</button>
+                        </div>
+                        <div id="certificationList" class="dynamic-list"></div>
+                    </section>
+
+                    <!-- Final Actions -->
+                    <div class="form-section form-actions">
+                        <button id="finalSaveBtn" class="btn-primary btn-large">Save & Continue</button>
+                        <a href="template.html" class="btn-secondary btn-large">Cancel</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Live Preview -->
+            <div class="editor-preview-panel">
+                <div class="preview-header">
+                    <h4>Live Preview</h4>
+                    <span class="preview-template"></span>
+                </div>
+                <div id="resumePreview" class="resume-preview"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Success Message -->
+    <div id="successMsg" class="success-message" style="display: none;">
+        <span id="successText">Resume saved successfully!</span>
+    </div>
+
+    <script src="resume-editor.js"></script>
+</body>
+</html>
