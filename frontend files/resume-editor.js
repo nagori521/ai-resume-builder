@@ -81,7 +81,7 @@ function setupActionButtons() {
     document.getElementById('saveBtn').addEventListener('click', saveResume);
     document.getElementById('downloadBtn').addEventListener('click', downloadResumePDF);
     document.getElementById('finalSaveBtn').addEventListener('click', saveResume);
-    
+
     if (selectedMode === 'reshape') {
         document.getElementById('importBtn').addEventListener('click', importContent);
     }
@@ -445,7 +445,11 @@ function saveResume() {
         return;
     }
     saveToLocalStorage();
+    localStorage.setItem("resumeData", JSON.stringify(resumeData));
     showSuccessMessage('Resume saved successfully! You can now download it as PDF.');
+    setTimeout(() => {
+        window.location.href = `template.html?template=${selectedTemplate}`;
+    }, 1500);
 }
 
 function saveToLocalStorage() {
@@ -458,7 +462,7 @@ function saveToLocalStorage() {
 function loadFromLocalStorage() {
     const storageKey = `resume_${selectedTemplate}_${selectedMode}`;
     const saved = localStorage.getItem(storageKey);
-    
+
     if (saved) {
         try {
             resumeData = JSON.parse(saved);
@@ -486,7 +490,7 @@ function populateFormFields() {
 // ==================== Import Content (Reshape Mode) ====================
 function importContent() {
     const pasteContent = document.getElementById('pasteContent').value.trim();
-    
+
     if (!pasteContent) {
         alert('Please paste your resume content or select a file');
         return;
@@ -494,7 +498,7 @@ function importContent() {
 
     // Simple parsing - extract likely sections
     const sections = pasteContent.split(/\n\n+/);
-    
+
     // Try to extract key information
     const firstLine = sections[0];
     if (firstLine) {
@@ -521,9 +525,35 @@ function importContent() {
     updateLivePreview();
     saveToLocalStorage();
     showSuccessMessage('Content imported! Please review and refine your information.');
-    
+
     // Scroll to top
     document.querySelector('.form-container').scrollTop = 0;
+}
+
+// ==================== AI Content Generation ====================
+async function generateAIContent(jobTitle) {
+    try {
+        const response = await fetch("http://127.0.0.1:5000/generate-ai-content", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                job_title: jobTitle
+            })
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error generating AI content:', error);
+        alert('Failed to generate AI content. Make sure the backend server is running.');
+        return null;
+    }
 }
 
 // ==================== PDF Download ====================
@@ -578,7 +608,7 @@ async function downloadResumePDF() {
         pdf.save(`${resumeData.fullName.replace(/\s+/g, '_')}_Resume_${selectedTemplate}.pdf`);
 
         showSuccessMessage('Resume downloaded successfully as PDF!');
-        
+
         // Restore button
         downloadBtn.innerHTML = originalText;
         downloadBtn.disabled = false;
@@ -612,3 +642,213 @@ style.textContent = `
     }
 `;
 document.head.appendChild(style);
+
+
+
+// AI Gemeration Button 
+
+// async function generateSummaryAI(){
+
+//     const jobTitle = document.getElementById("professionalTitle").value;
+
+//     if(!jobTitle){
+//         alert("Please enter Professional Title first");
+//         return;
+//     }
+
+//     const aiData = await generateAIContent(jobTitle);
+
+//     if(aiData){
+//         resumeData.summary = aiData;
+//         document.getElementById("summary").value = aiData;
+//         updateLivePreview();
+//         autoSaveData();
+//     }
+
+// }
+
+
+// async function generateSummaryAI(){
+
+//     const jobTitle = document.getElementById("professionalTitle").value;
+
+//     if(!jobTitle){
+//         alert("Please enter Professional Title first");
+//         return;
+//     }
+
+//     try{
+
+//         const response = await fetch("http://127.0.0.1:5000/generate-ai-content", {
+//             method: "POST",
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+//             body: JSON.stringify({
+//                 job_title: jobTitle
+//             })
+//         });
+
+//         const result = await response.json();
+
+//         if(!response.ok){
+//             throw new Error(result.error || "AI failed");
+//         }
+
+//         document.getElementById("summary").value = result.content;
+
+//         resumeData.summary = result.content;
+
+//         updateLivePreview();
+
+//         autoSaveData();
+
+//     }
+//     catch(error){
+//         console.error(error);
+//         alert("AI failed: " + error.message);
+//     }
+// }
+
+
+// async function generateSummaryAI(){
+
+//     const jobTitle = document.getElementById("professionalTitle").value;
+
+//     if(!jobTitle){
+//         alert("Please enter Professional Title first");
+//         return;
+//     }
+
+//     try{
+
+//         const response = await fetch("http://127.0.0.1:5000/generate-ai-content", {
+
+//             method: "POST",
+
+//             headers: {
+//                 "Content-Type": "application/json"
+//             },
+
+//             body: JSON.stringify({
+//                 job_title: jobTitle
+//             })
+
+//         });
+
+//         const result = await response.json();
+
+//         console.log("AI Response:", result);
+
+//         if(!response.ok){
+//             throw new Error(result.error);
+//         }
+
+//         // document.getElementById("summary").value = result.content;
+//         document.getElementById("summary").value = result.summary;
+
+
+//         resumeData.summary = result.content;
+
+//         updateLivePreview();
+
+//         autoSaveData();
+
+//     }
+//     catch(error){
+
+//         console.error(error);
+
+//         alert("AI failed: " + error.message);
+
+//     }
+
+// }
+
+// New New Code for AI Generation with better error handling and fallback// async function generateSummaryAI(){ // const jobTitle = document.getElementById("professionalTitle").value; // if(!jobTitle){ // alert("Please enter Professional Title first"); // return; // } // try{ // const response = await fetch("http://
+
+async function generateSummaryAI(){
+
+    const jobTitleInput = document.getElementById("professionalTitle");
+
+    if(!jobTitleInput){
+        alert("Professional Title field not found");
+        return;
+    }
+
+    const jobTitle = jobTitleInput.value || "Professional";
+
+    try{
+
+        const response = await fetch("http://127.0.0.1:5000/generate-ai-content", {
+
+            method: "POST",
+
+            headers: {
+                "Content-Type": "application/json"
+            },
+
+            body: JSON.stringify({
+                job_title: jobTitle
+            })
+
+        });
+
+        const result = await response.json();
+
+        console.log("AI RESULT:", result);
+
+        if(!result){
+            throw new Error("No AI response received");
+        }
+
+        // SET SUMMARY FIELD
+        const summaryField = document.getElementById("summary");
+
+        if(summaryField && result.summary){
+            summaryField.value = result.summary;
+            resumeData.summary = result.summary;
+        }
+
+        // OPTIONAL: SET SKILLS
+        if(result.skills && result.skills.length > 0){
+            resumeData.skills = result.skills.map(skill => ({
+                id: Date.now() + Math.random(),
+                skillName: skill
+            }));
+
+            renderSkillsList();
+        }
+
+        // OPTIONAL: SET EXPERIENCE
+        if(result.experience){
+            resumeData.experience = [{
+                id: Date.now(),
+                jobTitle: jobTitle,
+                company: "Generated by AI",
+                startDate: "",
+                endDate: "",
+                description: result.experience
+            }];
+
+            renderExperienceList();
+        }
+
+        updateLivePreview();
+
+        autoSaveData();
+
+        alert("AI content generated successfully!");
+
+    }
+    catch(error){
+
+        console.error("AI ERROR:", error);
+
+        alert("AI failed: " + error.message);
+
+    }
+
+}
+
+

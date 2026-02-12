@@ -36,12 +36,13 @@
                 <div class="slider-tab"></div>
             </div>
             <div class="form-inner">
-                <form action="#" class="login">
+                <form id="loginForm" class="login" onsubmit="handleLogin(event)">
+                    <div id="loginMessage" style="color: red; margin-bottom: 15px; display: none;"></div>
                     <div class="field">
-                        <input type="text" placeholder="Email Address" required>
+                        <input type="text" id="loginEmail" placeholder="Email Address" required>
                     </div>
                     <div class="field">
-                        <input type="password" placeholder="Password" required>
+                        <input type="password" id="loginPassword" placeholder="Password" required>
                     </div>
                     <div class="pass-link">
                         <a href="#">Forgot password?</a>
@@ -93,6 +94,7 @@
             return false;
         });
     </script>
+    <script src="login.js"></script>
 </body>
 
-</html>>
+</html>

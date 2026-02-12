@@ -1,25 +1,61 @@
 import os
-import google.generativeai as genai
 from dotenv import load_dotenv
+from google import genai
 
 load_dotenv()
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+api_key = os.getenv("GEMINI_API_KEY")
 
-model = genai.GenerativeModel("gemini-pro")
+client = None
+if api_key:
+    try:
+        client = genai.Client(api_key=api_key)
+    except Exception as e:
+        print("Gemini client error:", e)
 
-def generate_resume_content(role, skills, experience):
-    prompt = f"""
-    You are a professional resume writer.
 
-    Generate a concise, ATS-friendly resume summary.
+def fallback_ai_content(job_title):
 
-    Job Role: {role}
-    Skills: {skills}
-    Experience: {experience}
+    return {
+        "summary": f"Motivated and detail-oriented {job_title} with strong analytical, technical, and communication skills. Able to work effectively in team environments and deliver high-quality results.",
+        "skills": [
+            "Communication",
+            "Problem Solving",
+            "Teamwork",
+            "Technical Skills",
+            "Time Management"
+        ],
+        "experience": f"Worked on academic and personal projects related to {job_title}. Demonstrated ability to learn quickly and apply knowledge effectively."
+    }
 
-    Keep it professional and impactful.
-    """
 
-    response = model.generate_content(prompt)
-    return response.text
+def generate_ai_content(job_title):
+
+    if client:
+        try:
+
+            prompt = f"Generate a professional resume summary for a {job_title}."
+
+            response = client.models.generate_content(
+                model="gemini-2.0-flash",
+                contents=prompt
+            )
+
+            if response and response.text:
+
+                return {
+                    "summary": response.text,
+                    "skills": [
+                        "Communication",
+                        "Problem Solving",
+                        "Teamwork"
+                    ],
+                    "experience": response.text
+                }
+
+        except Exception as e:
+
+            print("Gemini failed:", e)
+
+    # ALWAYS RETURN FALLBACK
+    return fallback_ai_content(job_title)

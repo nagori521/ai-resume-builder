@@ -56,6 +56,20 @@ function getTemplateFromURL() {
     return params.get('template') || 'modern';
 }
 
+/* ==================== Select Template Function ==================== */
+// function selectTemplate(template) {
+//     localStorage.setItem("selectedTemplate", template);
+//     window.location.href = "resume-editor.html";
+// }
+
+function selectTemplate(template) {
+
+    localStorage.setItem("selectedTemplate", template);
+
+    window.location.href = `resume-editor.html?template=${template}&mode=build`;
+
+}
+
 /* ==================== Set Template Data ==================== */
 const selectedTemplate = getTemplateFromURL();
 
@@ -66,8 +80,7 @@ if (buildBtn) {
     buildBtn.setAttribute('data-template', selectedTemplate);
     buildBtn.addEventListener('click', () => {
         const template = buildBtn.getAttribute('data-template');
-        const mode = buildBtn.getAttribute('data-mode');
-        window.location.href = `resume-editor.html?template=${template}&mode=${mode}`;
+        selectTemplate(template);
     });
 }
 
@@ -75,8 +88,7 @@ if (reshapeBtn) {
     reshapeBtn.setAttribute('data-template', selectedTemplate);
     reshapeBtn.addEventListener('click', () => {
         const template = reshapeBtn.getAttribute('data-template');
-        const mode = reshapeBtn.getAttribute('data-mode');
-        window.location.href = `resume-editor.html?template=${template}&mode=${mode}`;
+        selectTemplate(template);
     });
 }
 

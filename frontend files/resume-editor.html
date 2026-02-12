@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume Editor - AI Resume Builder</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="resume-editor.css">
     <!-- jsPDF for PDF export -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
+
 <body>
     <!-- Header -->
     <header class="editor-header">
         <div class="container-editor">
             <div class="header-top">
                 <div class="logo-section">
-                    <a href="index.html"><img src="images/logo.svg" alt="Smart Resume Builder Logo" class="logo-img"></a>
+                    <a href="index.html"><img src="images/logo.svg" alt="Smart Resume Builder Logo"
+                            class="logo-img"></a>
                 </div>
                 <div class="header-actions">
                     <button id="saveBtn" class="action-btn save-btn" title="Save locally">
@@ -78,7 +82,7 @@
                     <!-- Personal Information Section -->
                     <section class="form-section">
                         <h3>Personal Information</h3>
-                        
+
                         <div class="form-group">
                             <label for="fullName">Full Name *</label>
                             <input type="text" id="fullName" placeholder="e.g., John Doe" required>
@@ -114,6 +118,10 @@
                         <div class="form-group">
                             <label for="summary">Professional Summary</label>
                             <textarea id="summary" placeholder="Write a brief summary about yourself..."></textarea>
+                            <button type="button" onclick="generateSummaryAI()" class="btn btn-ai">
+                                ✨ Generate AI Summary
+                            </button>
+
                         </div>
                     </section>
 
@@ -179,4 +187,5 @@
 
     <script src="resume-editor.js"></script>
 </body>
+
 </html>

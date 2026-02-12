@@ -1,8 +1,11 @@
 from flask import Flask
+# from flask_cors import CORS
 from flask_cors import CORS
+
 from database.db_connection import get_db_connection
 from flask import Flask, request, jsonify
 import bcrypt
+from ai.ai_stub import generate_resume_content
 
 
 app = Flask(__name__)
@@ -289,6 +292,178 @@ def delete_resume(resume_id):
             pass
 
 
+# AI Content Generation endpoint
+# @app.route("/generate-ai-content", methods=["POST"])
+# def generate_ai_content():
+#     data = request.json
+
+#     role = data.get("role")
+#     skills = data.get("skills")
+#     experience = data.get("experience")
+
+#     if not all([role, skills, experience]):
+#         return jsonify({"error": "All fields are required"}), 400
+
+#     ai_text = generate_resume_content(role, skills, experience)
+
+#     return jsonify({
+#         "ai_content": ai_text
+#     }), 200
+
+
+# if __name__ == "__main__":
+#     app.run(debug=True)
+
+# from flask import request, jsonify
+# from ai.gemini_service import generate_ai_content
+
+# @app.route("/generate-ai-content", methods=["POST"])
+# def generate_ai():
+
+#     try:
+#         data = request.get_json()
+
+#         if not data:
+#             return jsonify({"error": "No JSON data received"}), 400
+
+#         job_title = data.get("job_title")
+
+#         if not job_title:
+#             return jsonify({"error": "job_title is required"}), 400
+
+#         ai_text = generate_ai_content(job_title)
+
+#         return jsonify({
+#             "success": True,
+#             "content": ai_text
+#         })
+
+#     except Exception as e:
+#         print("AI ERROR:", str(e))
+#         return jsonify({"error": str(e)}), 500
+
+
+
+from flask import request, jsonify
+from ai.gemini_service import generate_ai_content
+
+# @app.route("/generate-ai-content", methods=["POST"])
+# def generate_ai_content_route():
+
+#     try:
+#         data = request.get_json()
+
+#         print("Received data:", data)
+
+#         if not data:
+#             return jsonify({"error": "No JSON received"}), 400
+
+#         job_title = data.get("job_title")
+
+#         if not job_title:
+#             return jsonify({"error": "job_title missing"}), 400
+
+#         ai_text = generate_ai_content(job_title)
+
+#         print("AI Generated:", ai_text)
+
+#         return jsonify({
+#             "content": ai_text
+#         }), 200
+
+#     except Exception as e:
+#         print("ERROR:", str(e))
+#         return jsonify({"error": str(e)}), 500
+
+# @app.route("/generate-ai-content", methods=["POST"])
+# def generate_ai_content_route():
+
+#     data = request.get_json()
+
+#     job_title = data.get("job_title")
+
+#     ai_data = generate_ai_content(job_title)
+
+#     return jsonify(ai_data)
+
+
+# @app.route("/generate-ai-content", methods=["POST"])
+# def generate_ai_content_route():
+
+#     try:
+#         data = request.get_json()
+
+#         if not data:
+#             return jsonify({
+#                 "summary": "",
+#                 "skills": [],
+#                 "experience": ""
+#             })
+
+#         job_title = data.get("job_title", "Professional")
+
+#         ai_data = generate_ai_content(job_title)
+
+#         return jsonify(ai_data)
+
+#     except Exception as e:
+
+#         print("AI ERROR:", str(e))
+
+#         return jsonify({
+#             "summary": f"Motivated {job_title} with strong technical skills.",
+#             "skills": ["Communication", "Problem Solving"],
+#             "experience": "Worked on various academic and personal projects."
+#         })
+
+# new new AI route with fallback to ensure we always return something even if AI fails
+@app.route("/generate-ai-content", methods=["POST"])
+def generate_ai_content_route():
+
+    try:
+
+        data = request.get_json()
+
+        if not data:
+            return jsonify({
+                "summary": "Motivated professional with strong skills.",
+                "skills": ["Communication", "Problem Solving"],
+                "experience": "Worked on academic and personal projects."
+            })
+
+        job_title = data.get("job_title", "Professional")
+
+        ai_data = generate_ai_content(job_title)
+
+        print("AI DATA:", ai_data)
+
+        # Ensure ai_data is always valid
+        if not ai_data:
+            return jsonify({
+                "summary": f"Motivated {job_title} with strong analytical and technical skills.",
+                "skills": ["Communication", "Teamwork", "Problem Solving"],
+                "experience": f"Worked on projects related to {job_title}."
+            })
+
+        # Ensure keys exist
+        return jsonify({
+            "summary": ai_data.get("summary", f"Motivated {job_title} with strong professional skills."),
+            "skills": ai_data.get("skills", ["Communication", "Problem Solving", "Teamwork"]),
+            "experience": ai_data.get("experience", f"Worked on projects related to {job_title}.")
+        })
+
+    except Exception as e:
+
+        print("ERROR:", e)
+
+        return jsonify({
+            "summary": "Motivated professional with strong skills.",
+            "skills": ["Communication", "Teamwork"],
+            "experience": "Worked on academic and personal projects."
+        })
+
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    print("Starting Flask server...")
+    app.run(host="127.0.0.1", port=5000, debug=True)
 

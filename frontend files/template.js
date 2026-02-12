@@ -299,4 +299,44 @@ function handleSwipe() {
 	}
 }
 
-console.log('Templates page loaded successfully');
+// ==================== Save Resume ====================
+// async function saveResume(){
+// 	const resumeData = JSON.parse(localStorage.getItem("resumeData"));
+
+// 	const response = await fetch("http://127.0.0.1:5000/save-resume", {
+// 		method: "POST",
+// 		headers: {
+// 			"Content-Type": "application/json"
+// 		},
+// 		body: JSON.stringify(resumeData)
+// 	});
+
+// 	alert("Resume Saved Successfully");
+// }
+
+// console.log('Templates page loaded successfully');
+
+
+async function saveResume(){
+
+	const resumeData = JSON.parse(localStorage.getItem("resumeData"));
+
+	const user_id = localStorage.getItem("user_id");
+
+	const response = await fetch("http://127.0.0.1:5000/save-resume", {
+
+		method: "POST",
+
+		headers: {
+			"Content-Type": "application/json"
+		},
+
+		body: JSON.stringify({
+			user_id: user_id,
+			...resumeData
+		})
+	});
+
+	alert("Resume Saved Successfully");
+
+}
